@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoShop - Sustainable Shopping Assistant</title>
+  <!-- Luxurious Font from Google Fonts: Cinzel -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="logo.png">
+  <!-- OR for .ico file -->
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      font-size: 16px;
+    }
+    body {
+      font-family: 'poppins', serif;
+      background-color: #fff;
+      color:darkgreen;
+      line-height: 1.6;
+    }
+    
+    /* Header */
+    header {
+      background-color: darkgreen;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    .logo a {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 1.5px;
+    }
+    /* Navigation: Only 'Home' link shown */
+    .nav-links {
+      list-style: none;
+      margin-top: 1rem;
+    }
+    .nav-links li {
+      display: inline;
+    }
+    .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      margin: 0 1rem;
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover {
+      color: #D4AF37;
+    }
+    
+    /* Hero Section */
+    .hero {
+  position: relative;
+  text-align: center;
+  padding: 6rem 2rem;
+  background-color: #f0f0f0; /* Light gray background color */
+  color: black;
+}
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Mission Section */
+    .mission {
+      max-width: 800px;
+      margin: 4rem auto;
+      text-align: center;
+      padding: 2rem;
+    }
+    .mission h2 {
+      font-size: 2.5rem;
+      color: darkgreen;
+      margin-bottom: 1rem;
+    }
+    .mission p {
+      font-size: 1.2rem;
+      color:darkgreen;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    .mission ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1rem;
+      color:darkgreen;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .mission ul li::before {
+      content: "✔ ";
+      color: #D4AF37;
+      margin-right: 0.5rem;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: darkgreen;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.2rem;
+      }
+    }
+    /* Mobile devices (by default 100% width hoti hai) */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .mission h2 {
+        font-size: 2rem;
+      }
+      .mission p {
+        font-size: 1rem;
+      }
+      .mission ul {
+    font-size: 0.9rem;
+  }
+
+  nav .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  nav .logo a {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.3rem;
+  }
+
+  .mission h2 {
+    font-size: 2.2rem;
+  }
+
+  .mission p {
+    font-size: 1.1rem;
+  }
+
+  .mission ul {
+    font-size: 1rem;
+  }
+}
+
+/* Laptops and Desktops (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1.5rem;
+  }
+
+  .mission h2 {
+    font-size: 2.5rem;
+  }
+
+  .mission p {
+    font-size: 1.2rem;
+  }
+
+  .mission ul {
+    font-size: 1.1rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="ecoshop.html">EcoShop</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="ecoshop.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="hero bg-cover bg-center h-screen text-white flex items-center justify-center" style="background-image: url('images/eco-hero.jpg');">
+    <div class="text-center bg-black/50 p-6 rounded-lg">
+      <h1 class="text-4xl font-bold">EcoShop</h1>
+      <p class="mt-3 text-lg">
+        Revolutionizing your shopping experience with sustainability at its core.
+      </p>
+    </div>
+  </section>
+  
+  <main class="mission">
+    <h2>Our Mission</h2>
+    <p>
+      At EcoShop, our mission is to empower you to make smart, sustainable choices that foster environmental stewardship and drive real change. We believe that every shopping decision has the power to impact our planet positively.
+    </p>
+    <ul>
+      <li>Reusable household essentials</li>
+      <li>Biodegradable packaging</li>
+      <li>Sustainable personal care items</li>
+      <li>Innovative eco-friendly solutions</li>
+    </ul>
+    <p>
+      Thank you for choosing EcoShop as your partner in creating a cleaner, greener world. If you have any questions, suggestions, or just want to say hello, feel free to reach out to us.
+    </p>
+    <p>
+      "As an Amazon Associate, EcoShop earns from qualifying purchases. This helps support our mission to promote sustainability and provide you with the best eco-friendly products."
+    </p>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 EcoShop. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <!-- OR for .ico file -->
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <title>Eco Shop</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #d4edda; /* Light Green */
+        }
+        header{
+  background-color: #206444;
+}
+
+      
+        nav {
+            background-color: rgb(250, 250, 250);
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        footer{
+  color: aliceblue;
+  background-color: black;
+}
+        .product {
+            transition: transform 0.3s ease-in-out;
+        }
+        .product:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+        .product:active {
+            transform: scale(1.1);
+        }
+        .product {
+    background-color: #fcfefd; /* Light Green */
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product:active {
+    transform: scale(1.1);
+}
+.nav {
+            position: relative;
+            background-image: url('beautyy.jpg'); /* Replace with the actual image path */
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            color:black;
+            background-color:darkgreen;
+        }
+        .nav .breadcrumb {
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            font-size: 20px;
+            color:white;
+        }
+        .nav .title {
+            position: absolute;
+            bottom: 80px;
+            top: 40px;
+            right: 30px;
+            font-size: 36px;
+            font-weight: bold;
+            color:black;
+        }
+        .button {
+    background-color: darkgreen; /* Green background color */
+    color: white; /* White text color */
+    padding: 15px 30px; /* Padding for the button */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    font-family: Arial, sans-serif; /* Font family */
+    font-size: 18px; /* Font size */
+    display: inline-block; /* Inline-block display */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-decoration: none; /* Remove underline from text */
+    margin-top: 25px; /* Adjust the value as needed */
+}
+    /* Mobile devices (by default 100% width hoti hai) */
+    @media (max-width: 640px) {
+  .container {
+    padding: 10px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+
+  .nav .title {
+    font-size: 24px; /* Smaller title font size */
+    top: 20px;
+    right: 10px;
+  }
+
+  .nav .breadcrumb {
+    font-size: 16px; /* Smaller breadcrumb font size */
+  }
+  .button {
+    font-size: 16px; /* Smaller button text */
+    padding: 10px 20px;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+/* Tablets (min-width: 641px and max-width: 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+
+  .nav .title {
+    font-size: 28px; /* Adjust title font size for tablets */
+  }
+
+  .button {
+    font-size: 18px;
+    padding: 12px 25px;
+  }
+}
+/* Laptops and Desktops (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
+  }
+
+  .nav .title {
+    font-size: 36px; /* Default title font size */
+  }
+
+  .button {
+    font-size: 18px;
+    padding: 15px 30px;
+  }
+}
+
+      
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty products</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const navLinks = document.querySelectorAll(".nav-link");
+          navLinks.forEach(link => {
+            link.addEventListener("click", function () {
+              navLinks.forEach(nav => nav.classList.remove("active"));
+              this.classList.add("active");
+            });
+          });
+          const saleTexts = [
+        'The greatest threat to our planet is the belief that someone else will save it 🌍♻️✨ <a href="shopall.html" class="underline">Shop Now!</a>',
+        'Buy less, choose well, make it last 🛍️✨🌱 <a href="shopall.html" class="underline">Shop Now!!</a>',
+        'Every time you spend money, you are casting a vote for the kind of world you want💰🌏✅ ✨ <a href="shoapall.html" class="underline">Shop Now!!</a>',
+        'Nature does not need us but we need nature protect it! 🌳🤝',
+        "Ditch plastic, embrace bamboo—nature’s gift to sustainability! 🎍🚫🛍️",
+        "Every step towards eco-friendliness is a step towards a better planet. 👣🌎"  ,
+        "A clean earth is a happy earth—go green, live clean! 🌍😊" ,
+      ];
+    
+          let currentIndex = 0;
+    
+          function updateSaleText() {
+            document.getElementById('sale-text').innerHTML = saleTexts[currentIndex];
+            currentIndex = (currentIndex + 1) % saleTexts.length;
+          }
+    
+          updateSaleText();
+          setInterval(updateSaleText, 5000); // Change text every 5 seconds
+        });
+      </script>
+
+</head>
+<body class="bg-green-100 p-6">
+  <div class="nav">
+    <div class="breadcrumb">Home > Beauty</div>
+    <div class="title">Beauty Products</div>
+  </div>
+  <header class="text-white text-sm text-center py-5">
+    <p id="sale-text"></p>
+  </header>
+    
+    <section class="bg-white py-8">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Beauty Products</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Product 1 -->
+          <div class="product border border-gray-200 rounded-lg p-4">
+            <a href="https://amzn.to/41REBy4">
+              <img src="maskara.jpg" alt="Recyclable Mascara - Zero Waste" class="w-full h-64 object-cover rounded-lg mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Recyclable Mascara - Zero Waste</h3>
+            </a>
+            <p class="text-gray-600">₹387</p>
+            <p class="text-gray-600">3.6 reviews</p>
+            <p class="text-gray-600">⭐⭐⭐</p>
+          </div>
+    
+          <!-- Product 2 -->
+          <div class="product border border-gray-200 rounded-lg p-4">
+            <a href="https://amzn.to/4irHLzH">
+              <img src="compac.jpg" alt="Compact" class="w-full h-64 object-cover rounded-lg mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Compact</h3>
+            </a>
+            <p class="text-gray-600">₹489</p>
+            <p class="text-gray-600">5 reviews</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+          </div>
+    
+          <!-- Product 3 -->
+          <div class="product border border-gray-200 rounded-lg p-4">
+            <a href="https://amzn.to/4iqVfvt">
+              <img src="remove.png" alt="Makeup Removal Pads" class="w-full h-64 object-cover rounded-lg mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Makeup Removal Pads</h3>
+            </a>
+            <p class="text-gray-600">₹289</p>
+            <p class="text-gray-600">20 reviews</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+          </div>
+    
+          <!-- Product 4 -->
+          <div class="product border border-gray-200 rounded-lg p-4">
+            <a href="https://amzn.to/4bNTUwd">
+              <img src="sun.png" alt="Sunscreen" class="w-full h-64 object-cover rounded-lg mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Sunscreen</h3>
+            </a>
+            <p class="text-gray-600">₹1449</p>
+            <p class="text-gray-600">No reviews</p>
+            <p class="text-gray-600">⭐☆☆☆☆</p>
+          </div>
+    
+          <!-- Product 5 -->
+          <div class="product border border-gray-200 rounded-lg p-4">
+            <a href="https://amzn.to/4bT5k1M">
+              <img src="toner.jpg" alt="Toner" class="w-full h-64 object-cover rounded-lg mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Toner</h3>
+            </a>
+            <p class="text-gray-600">₹1075</p>
+            <p class="text-gray-600">12 reviews</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+          </div>
+    
+          <!-- Product 6 -->
+          <div class="product border border-gray-200 rounded-lg p-4">
+            <a href="https://amzn.to/4kMOVQx">
+              <img src="makeup.jpg" alt="Makeup Kit" class="w-full h-64 object-cover rounded-lg mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Makeup Kit</h3>
+            </a>
+            <p class="text-gray-600">₹1092</p>
+            <p class="text-gray-600">16 reviews</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+          </div>
+    
+          <!-- Product 7 -->
+          <div class="product border border-gray-200 rounded-lg p-4">
+            <a href="https://amzn.to/41MBc3v">
+              <img src="stick.jpg" alt="Regular Lipstick" class="w-full h-64 object-cover rounded-lg mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Regular Lipstick</h3>
+            </a>
+            <p class="text-gray-600">₹75</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+          </div>
+    
+          <!-- Product 8 -->
+          <div class="product border border-gray-200 rounded-lg p-4">
+            <a href="https://amzn.to/4isKQzq">
+              <img src="face.jpg" alt="Face Mask" class="w-full h-64 object-cover rounded-lg mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Face Mask</h3>
+            </a>
+            <p class="text-gray-600">₹420</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+          </div>
+    
+          <!-- Product 9 -->
+          <div class="product border border-gray-200 rounded-lg p-4">
+            <a href="https://amzn.to/4kOf69u">
+              <img src="lip.jpg" alt="Lip Therapy Balm - Zero Waste Lip Care" class="w-full h-64 object-cover rounded-lg mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Lip Therapy Balm - Zero Waste Lip Care</h3>
+            </a>
+            <p class="text-gray-600">₹249</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+          </div>
+    
+          <!-- Product 10 -->
+          <div class="product border border-gray-200 rounded-lg p-4">
+            <a href="https://amzn.to/4hxwKLY">
+              <img src="soy.png" alt="Soy Candles" class="w-full h-64 object-cover rounded-lg mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Soy Candles</h3>
+            </a>
+            <p class="text-gray-600">₹284</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+          </div>
+    
+          <!-- Product 11 -->
+          <div class="product border border-gray-200 rounded-lg p-4">
+            <a href="https://amzn.to/4hGxize">
+              <img src="sheet.png" alt="Organic Cotton Bedsheet" class="w-full h-64 object-cover rounded-lg mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Cotton Bedsheet</h3>
+            </a>
+            <p class="text-gray-600">₹689</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+          </div>
+    
+          <!-- Product 12 -->
+          <div class="product border border-gray-200 rounded-lg p-4">
+            <a href="https://amzn.to/4kIDjhv">
+              <img src="soap.jpg" alt="Organic Soap Bars" class="w-full h-64 object-cover rounded-lg mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Soap Bars</h3>
+            </a>
+            <p class="text-gray-600">₹440</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+         
+ 
+         
+<footer class="bg-green-900 text-gray-300 py-10 animate-fade-in">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+    <!-- Brand & Description -->
+    <div class="transform transition duration-300 hover:scale-105">
+      <h2 class="text-2xl font-extrabold text-white">Eco Shop</h2>
+      <p class="mt-3 text-sm opacity-80">Redefining sustainable shopping with elegance and responsibility.</p>
+    </div>
+
+    <!-- Navigation Links -->
+    <div>
+      <h2 class="text-lg font-semibold text-white">Explore</h2>
+      <ul class="mt-3 space-y-2">
+        <li><a href="ecoshop.html" class="hover:text-green-400 transition duration-300">Home</a></li>
+        <li><a href="shopall.html" class="hover:text-green-400 transition duration-300">Shop</a></li>
+        <li><a href="recomandation.html" class="hover:text-green-400 transition duration-300">Assistant</a></li>
+        <li><a href="blog.html" class="hover:text-green-400 transition duration-300">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div>
+      <h2 class="text-lg font-semibold text-white">Stay Connected</h2>
+      <div class="flex space-x-5 mt-3">
+        <a href="#" class="hover:text-blue-400 transition duration-300 transform hover:scale-110"><i class="fa-brands fa-facebook"></i></i></a>
+        <a href="#" class="hover:text-blue-400 transition duration-300 transform hover:scale-110"><i class="fa-brands fa-twitter"></i></i></a>
+        <a href="#" class="hover:text-blue-400 transition duration-300 transform hover:scale-110"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="border-t border-gray-700 mt-8 text-center text-sm py-4 text-gray-500">
+    &copy; 2025 EcoShop. All Rights Reserved.
+  </div>
+</footer>
+  
+      
+        </body>
+        </html>

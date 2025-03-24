@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco Shop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" type="image/png" href="logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .translate-x-full {
+      transform: translateX(100%);
+    }
+    .translate-x-0 {
+      transform: translateX(0);
+    }
+    .transition-transform {
+      transition: transform 0.3s ease-in-out;
+    }
+    .nav-link {
+      position: relative;
+      padding-bottom: 5px;
+      cursor: pointer;
+      margin: 0 20px;
+    }
+
+  
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background-color: transparent;
+      transition: background-color 0.3s ease-in-out;
+    }
+    .nav-link:hover::after, .nav-link.active::after {
+      background-color: #206444;
+    }
+    .promo-text {
+      position: absolute;
+      top: 10%;
+      left: 5%;
+      color:green;
+      text-align: left;
+    }
+    .promo-title {
+      font-size: 3rem; /* Smaller font size */
+      font-weight: 600;
+      color:white;
+    }
+    .promo-subtitle {
+      font-size: 2rem; /* Smaller font size */
+      font-weight: 400;
+    }
+    .button {
+    background-color: darkgreen; /* Green background color */
+    color: white; /* White text color */
+    padding: 15px 30px; /* Padding for the button */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    font-family: Arial, sans-serif; /* Font family */
+    font-size: 18px; /* Font size */
+    display: inline-block; /* Inline-block display */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-decoration: none; /* Remove underline from text */
+    margin-top: 25px; /* Adjust the value as needed */
+    }
+    .button:hover {
+            background-color: white;
+            color: green;
+            border: 2px solid green; /* optional, adds a green border on hover */
+        
+}
+header{
+  background-color: #206444;
+}
+.header .breadcrumb {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        .header .title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+        }
+footer{
+  color: aliceblue;
+  background-color: black;
+}
+b{
+  color: chocolate;
+  right: 10%;
+}
+.prom-text {
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      color: black;
+      text-align: left;
+    }
+    .prom-title {
+      font-size: 3rem; /* Smaller font size */
+      font-weight: 600;
+    }
+    .prom-subtitle{ 
+      font-size: 2rem; /* Smaller font size */
+      font-weight: 400;
+      color:#FFFFFF;
+  }
+  .product:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+
+/* Mobile Devices (max-width: 640px) */
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+
+  .nav .title {
+    font-size: 1.5rem; /* Smaller title font size */
+  }
+
+  .button {
+    font-size: 0.9rem; /* Smaller button text */
+    padding: 0.5rem 1rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablets (min-width: 641px and max-width: 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+
+  .nav .title {
+    font-size: 2rem; /* Adjust title font size for tablets */
+  }
+  .button {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Laptops and Desktops (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
+  }
+
+  .nav .title {
+    font-size: 2.5rem; /* Default title font size */
+  }
+
+  .button {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+  }
+}
+  
+ 
+  </style>
+</head>
+
+<body>
+    <!-- Top Header -->
+    <header class="text-white text-sm text-center py-4">
+      <p id="sale-text"></p>
+    </header>
+  <!-- Navbar -->
+  <nav class="bg-white shadow px-10 py-6 flex justify-between items-center"> <!-- Increased navbar padding -->
+    <div class="flex items-center space-x-3">
+      <img src="logo.png" alt="Eco shop Logo" class="h-10"> <!-- Increased logo size -->
+      <span class ="text-3xl font-semibold text-green-800">Eco Shop</span>
+    </div>
+    <ul class="flex text-gray-800 font-medium text-lg">
+      <li><a href="ecoshop.html" class="nav-link active">Shop</a></li>
+      <li><a href="home and kichen.html" class="nav-link">Home & Kitchen</a></li>
+      <li><a href="cleaning.html" class="nav-link">Cleaning</a></li>
+      <li><a href="bathroom.html" class="nav-link">Bathroom</a></li>
+      <li><a href="beauty.html" class="nav-link">Beauty</a></li>
+     <li><a href="recomandation.html" class="nav-link">Assistant</a></li>
+     
+      
+    </ul>
+    <div class="flex items-center space-x-6 text-gray-700 mt-[-5px]">
+      <!-- First Icon -->
+      <button id="searchIcon" class="hover:opacity-60 focus:outline-none">
+        <i class="fa-solid fa-magnifying-glass text-2xl hover:opacity-60"></i>
+              
+              </button>
+      
+  
+      <!-- Login Icon -->
+      <a href="blog.html">
+        <i class="fa-regular fa-address-card text-2xl hover:opacity-60"></i>
+              
+      </a>
+  
+      <!-- Cart Icon -->
+      <a href="ecoshop.html">
+
+       <i class="fa-solid fa-bag-shopping text-2xl hover:opacity-60"></i>
+      </a>
+
+  </div>
+  </nav>
+  <!-- Filter Bar -->
+  <section class="container mx-auto mt-6 px-4 py-6 bg-white rounded-lg shadow-md">
+    <h2 class="text-xl font-bold mb-4">Filter Products</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- Material Filter -->
+      <div>
+        <h3 class="font-semibold mb-2">Material</h3>
+        <label class="flex items-center mb-1">
+          <input type="checkbox" class="form-checkbox text-green-500 material-filter" value="Organic">
+          <span class="ml-2">Organic</span>
+        </label>
+        <label class="flex items-center mb-1">
+          <input type="checkbox" class="form-checkbox text-green-500 material-filter" value="Biodegradable">
+          <span class="ml-2">Biodegradable</span>
+        </label>
+        <label class="flex items-center mb-1">
+          <input type="checkbox" class="form-checkbox text-green-500 material-filter" value="Eco-Friendly">
+          <span class="ml-2">Eco-Friendly</span>
+        </label>
+        <label class="flex items-center mb-1">
+          <input type="checkbox" class="form-checkbox text-green-500 material-filter" value="Non-Toxic">
+          <span class="ml-2">Non-Toxic</span>
+        </label>
+        <label class="flex items-center">
+          <input type="checkbox" class="form-checkbox text-green-500 material-filter" value="Recyclable">
+          <span class="ml-2">Recyclable</span>
+        </label>
+      </div>
+
+      <!-- Price Range Filter -->
+      <div>
+        <h3 class="font-semibold mb-2">Price Range</h3>
+        <div class="flex items-center space-x-2">
+          <input type="number" id="price-min" placeholder="Min" class="w-20 border border-gray-300 rounded px-2 py-1">
+          <span>-</span>
+          <input type="number" id="price-max" placeholder="Max" class="w-20 border border-gray-300 rounded px-2 py-1">
+        </div>
+      </div>
+
+      <!-- Rating Filter -->
+      <div>
+        <h3 class="font-semibold mb-2">Rating</h3>
+        <select id="rating-filter" class="w-full border border-gray-300 rounded px-2 py-1">
+          <option value="">All Ratings</option>
+          <option value="4">4 Stars & Up</option>
+          <option value="3">3 Stars & Up</option>
+          <option value="2">2 Stars & Up</option>
+          <option value="1">1 Star & Up</option>
+        </select>
+      </div>
+
+      <!-- Apply Filter Button -->
+      <div class="mt-4 text-right">
+        <button id="apply-filters" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          Apply Filters
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="bg-white py-8">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">ALL Eco-Friendly Products</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Add your product cards here -->
+<!-- Product Card 1 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+     data-material="Wood" data-price="499" data-rating="5">
+  <a href="https://amzn.to/4hCfsNH">
+    <img src="pen.jpg" alt="Wooden Pen Drive" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Wooden Pen Drive</h3>
+  </a>
+  <p class="text-gray-600">₹499</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product Card 2 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+     data-material="Organic Cotton" data-price="499" data-rating="5">
+  <a href="https://amzn.to/4kQwJp8">
+    <img src="t.jpg" alt="T-shirt" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Cotton T-shirt</h3>
+  </a>
+  <p class="text-gray-600">₹499</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product Card 3 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+     data-material="Bamboo" data-price="399" data-rating="5">
+  <a href="https://amzn.to/4kPuJNZ">
+    <img src="tray.jpg" alt="Wooden Serving Tray" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Wooden Serving Tray</h3>
+  </a>
+  <p class="text-gray-600">₹399</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product Card 4 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+     data-material="Recycled Paper" data-price="251" data-rating="4">
+  <a href="https://amzn.to/4kQ93RP">
+    <img src="cup.jpg" alt="Eco-friendly Cups" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Eco-friendly Cups</h3>
+  </a>
+  <p class="text-gray-600">₹251</p>
+  <p class="text-gray-600">⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product Card 5 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+     data-material="Bamboo" data-price="280" data-rating="5">
+  <a href="https://amzn.to/4iRFnC1">
+    <img src="pencil.jpg" alt="Plantable Seed Pencils" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Plantable Seed Pencils</h3>
+  </a>
+  <p class="text-gray-600">₹280</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product Card 6 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+     data-material="Cotton" data-price="999" data-rating="5">
+  <a href="https://amzn.to/4iV3nV0">
+    <img src="beg.jpg" alt="Eco-friendly Cotton Hand Bag" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Eco-friendly Hand Bag</h3>
+  </a>
+  <p class="text-gray-600">₹999</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product Card 7 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+     data-material="Natural Ingredients" data-price="199" data-rating="5">
+  <a href="https://amzn.to/41Osyla">
+    <img src="soap.jpg" alt="Dish Washing Block - Dish Soap Bar" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Dish Washing Block - Dish Soap Bar</h3>
+  </a>
+  <p class="text-gray-600">₹199</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product Card 8 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+     data-material="Bamboo" data-price="295" data-rating="1">
+  <a href="https://amzn.to/4iPVEHK">
+    <img src="bamboo.jpg" alt="Bamboo Soap Shelf" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Bamboo Soap Shelf</h3>
+  </a>
+  <p class="text-gray-600">₹295</p>
+  <p class="text-gray-600">⭐☆☆☆☆</p>
+</div>
+
+<!-- Product Card 9 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+     data-material="Natural Ingredients" data-price="219" data-rating="5">
+  <a href="https://amzn.to/4iSq781">
+    <img src="paste.jpg" alt="Toothpaste" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Toothpaste</h3>
+  </a>
+  <p class="text-gray-600">₹219</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product Card 10 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+     data-material="Natural Ingredients" data-price="300" data-rating="5">
+  <a href="https://amzn.to/4hA7811">
+    <img src="tab.png" alt="Toothpaste Tablets Refill - Zero Waste" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Toothpaste Tablets Refill - Zero Waste</h3>
+  </a>
+  <p class="text-gray-600">₹300</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+       <!-- Product 1 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+data-material="Recycled Paper" data-price="299" data-rating="5">
+<a href="https://amzn.to/4bVhUxE">
+<img src="paper.png" alt="toilet paper" class="w-full h-64 object-cover rounded-lg mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Eco-friendly Toilet Paper</h3>
+</a>
+<p class="text-gray-600">₹299</p>
+<p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 2 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+data-material="Glass & Silk" data-price="449" data-rating="5">
+<a href="https://amzn.to/4iMPpEq">
+<img src="jar.jpg" alt="Silk Dental Floss - Refillable Jar" class="w-full h-64 object-cover rounded-lg mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Refillable Jar</h3>
+</a>
+<p class="text-gray-600">₹449</p>
+<p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 3 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+data-material="Bamboo" data-price="260" data-rating="5">
+<a href="https://amzn.to/4kIWYxP">
+<img src="brush.jpg" alt="toilet brush" class="w-full h-64 object-cover rounded-lg mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Toilet Brush</h3>
+</a>
+<p class="text-gray-600">₹260</p>
+<p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 4 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+data-material="Bamboo" data-price="288" data-rating="5">
+<a href="https://amzn.to/41OPpgm">
+<img src="clip.jpg" alt="bamboo clips" class="w-full h-64 object-cover rounded-lg mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Bamboo Clips</h3>
+</a>
+<p class="text-gray-600">₹288</p>
+<p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 5 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+data-material="Natural Ingredients" data-price="236" data-rating="5">
+<a href="https://amzn.to/4hxvCIc">
+<img src="detergent.jpg" alt="laundry paste" class="w-full h-64 object-cover rounded-lg mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Laundry Paste</h3>
+</a>
+<p class="text-gray-600">₹236</p>
+<p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 6 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+data-material="Natural Ingredients" data-price="400" data-rating="5">
+<a href="https://amzn.to/4kIVDah">
+<img src="soap.jpg" alt="organic soap bars" class="w-full h-64 object-cover rounded-lg mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Soap Bars</h3>
+</a>
+<p class="text-gray-600">₹400</p>
+<p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 7 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+data-material="Bamboo" data-price="95" data-rating="5">
+<a href="https://amzn.to/4kMr03F">
+<img src="tooth.jpg" alt="toothbrush" class="w-full h-64 object-cover rounded-lg mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Bamboo Toothbrush</h3>
+</a>
+<p class="text-gray-600">₹95</p>
+<p class="text-gray-600">20 reviews</p>
+<p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 8 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+data-material="Natural Ingredients" data-price="336" data-rating="5">
+<a href="https://amzn.to/4kNAfk5">
+<img src="toner.jpg" alt="body wash" class="w-full h-64 object-cover rounded-lg mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Body Wash</h3>
+</a>
+<p class="text-gray-600">₹336</p>
+<p class="text-gray-600">5 reviews</p>
+<p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 9 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+data-material="Recycled Plastic" data-price="387" data-rating="3">
+<a href="https://amzn.to/41REBy4">
+<img src="maskara.jpg" alt="Recyclable Mascara - Zero Waste" class="w-full h-64 object-cover rounded-lg mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Recyclable Mascara - Zero Waste</h3>
+</a>
+<p class="text-gray-600">₹387</p>
+<p class="text-gray-600">3.6 reviews</p>
+<p class="text-gray-600">⭐⭐⭐</p>
+</div>
+
+<!-- Product 10 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+data-material="Recycled Materials" data-price="489" data-rating="5">
+<a href="https://amzn.to/4irHLzH">
+<img src="compac.jpg" alt="compact" class="w-full h-64 object-cover rounded-lg mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Compact</h3>
+</a>
+<p class="text-gray-600">₹489</p>
+<p class="text-gray-600">5 reviews</p>
+<p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 11 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+data-material="Cotton" data-price="289" data-rating="5">
+<a href="https://amzn.to/4iqVfvt">
+<img src="remove.png" alt="Mackup Removal" class="w-full h-64 object-cover rounded-lg mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Makeup Removal Pads</h3>
+</a>
+<p class="text-gray-600">₹289</p>
+<p class="text-gray-600">20 reviews</p>
+<p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 12 -->
+<div class="product border border-gray-200 rounded-lg p-4" 
+data-material="Natural Ingredients" data-price="1449" data-rating="1">
+<a href="https://amzn.to/4bNTUwd">
+<img src="sun.png" alt="Sunscreen" class="w-full h-64 object-cover rounded-lg mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Sunscreen</h3>
+</a>
+<p class="text-gray-600">₹1449</p>
+<p class="text-gray-600">No reviews</p>
+<p class="text-gray-600">⭐☆☆☆☆</p>
+</div>
+    
+<div class="product border border-gray-200 rounded-lg p-4" data-material="organic" data-price="1075" data-rating="5" data-reviews="12">
+  <a href="https://amzn.to/4bT5k1M">
+    <img src="toner.jpg" alt="toner" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Toner</h3>
+  </a>
+  <p class="text-gray-600">₹1075</p>
+  <p class="text-gray-600">12 reviews</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<div class="product border border-gray-200 rounded-lg p-4" data-material="organic" data-price="1092" data-rating="5" data-reviews="16">
+  <a href="https://amzn.to/4kMOVQx">
+    <img src="makeup.jpg" alt="Makeup kit" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Makeup Kit</h3>
+  </a>
+  <p class="text-gray-600">₹1092</p>
+  <p class="text-gray-600">16 reviews</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<div class="product border border-gray-200 rounded-lg p-4" data-material="organic" data-price="75" data-rating="5" data-reviews="10">
+  <a href="https://amzn.to/41MBc3v">
+    <img src="stick.jpg" alt="Lip Balm" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Regular Lip Stick</h3>
+  </a>
+  <p class="text-gray-600">₹75</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<div class="product border border-gray-200 rounded-lg p-4" data-material="organic" data-price="420" data-rating="5" data-reviews="10">
+  <a href="https://amzn.to/4isKQzq">
+    <img src="face.jpg" alt="Face mask" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Face Mask</h3>
+  </a>
+  <p class="text-gray-600">₹420</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<div class="product border border-gray-200 rounded-lg p-4" data-material="organic" data-price="249" data-rating="5" data-reviews="10">
+  <a href="https://amzn.to/4kOf69u">
+    <img src="lip.jpg" alt="Lip Therapy Balm - Zero Waste Lip Care" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Lip Therapy Balm - Zero Waste Lip Care</h3>
+  </a>
+  <p class="text-gray-600">₹249</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<div class="product border border-gray-200 rounded-lg p-4" data-material="soy wax" data-price="284" data-rating="5" data-reviews="10">
+  <a href="https://amzn.to/4hxwKLY">
+    <img src="soy.png" alt="Soy Candles" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Soy Candles</h3>
+  </a>
+  <p class="text-gray-600">₹284</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<div class="product border border-gray-200 rounded-lg p-4" data-material="organic cotton" data-price="689" data-rating="5" data-reviews="10">
+  <a href="https://amzn.to/4hGxize">
+    <img src="sheet.png" alt="Organic Cotton Bedsheet" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Cotton Bedsheet</h3>
+  </a>
+  <p class="text-gray-600">₹689</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<div class="product border border-gray-200 rounded-lg p-4" data-material="organic" data-price="440" data-rating="5" data-reviews="10">
+  <a href="https://amzn.to/4kIDjhv">
+    <img src="soap.jpg" alt="Organic Soap Bars" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Soap Bars</h3>
+  </a>
+  <p class="text-gray-600">₹440</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<div class="product border border-gray-200 rounded-lg p-4" data-material="plant-based" data-price="349" data-rating="5" data-reviews="10">
+  <a href="https://amzn.to/4kWTTKG">
+    <img src="detergent.jpg" alt="Laundry Detergent Sheets" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Laundry Detergent Sheets</h3>
+  </a>
+  <p class="text-gray-600">₹349</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<div class="product border border-gray-200 rounded-lg p-4" data-material="bamboo" data-price="373" data-rating="4" data-reviews="3">
+  <a href="https://amzn.to/4iLqj96">
+    <img src="mug.jpg" alt="Bamboo Coffee Mug" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Bamboo Coffee Mug</h3>
+  </a>
+  <p class="text-gray-600">₹373</p>
+  <p class="text-gray-600">3 reviews</p>
+  <p class="text-gray-600">⭐⭐⭐⭐</p>
+</div>
+
+  <!-- Product 4 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Bamboo" data-price="295" data-rating="1">
+  <a href="https://amzn.to/4iPVEHK">
+    <img src="bamboo.jpg" alt="Bamboo Soap Shelf" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Bamboo Soap Shelf</h3>
+  </a>
+  <p class="text-gray-600">₹295</p>
+  <p class="text-gray-600">⭐☆☆☆☆</p>
+</div>
+
+<!-- Product 5 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Natural Ingredients" data-price="300" data-rating="5">
+  <a href="https://amzn.to/4hA7811">
+    <img src="tab.png" alt="Toothpaste Tablets" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Toothpaste Tablets</h3>
+  </a>
+  <p class="text-gray-600">₹300</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 6 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Plastic-Free" data-price="219" data-rating="5">
+  <a href="https://amzn.to/4iSq781">
+    <img src="paste.jpg" alt="Toothpaste" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Toothpaste</h3>
+  </a>
+  <p class="text-gray-600">₹219</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 7 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Eco-Friendly" data-price="99" data-rating="5">
+  <a href="https://amzn.to/4itHBrs">
+    <img src="mirror.jpg" alt="Mirror Cleaner" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Mirror Cleaner</h3>
+  </a>
+  <p class="text-gray-600">₹99</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 8 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Silk" data-price="249" data-rating="5">
+  <a href="https://amzn.to/4kIL9aP">
+    <img src="jar.jpg" alt="Silk Dental Floss" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Silk Dental Floss</h3>
+  </a>
+  <p class="text-gray-600">₹249</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 9 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Bamboo" data-price="499" data-rating="5">
+  <a href="https://amzn.to/4iOEOc9">
+    <img src="brush.jpg" alt="Toilet Brush" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Toilet Brush</h3>
+  </a>
+  <p class="text-gray-600">₹499</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 10 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Bamboo" data-price="225" data-rating="5">
+  <a href="https://amzn.to/4hBcd9g">
+    <img src="clip.jpg" alt="Bamboo Clips" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Bamboo Clips</h3>
+  </a>
+  <p class="text-gray-600">₹225</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 11 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Organic" data-price="473" data-rating="5">
+  <a href="https://amzn.to/4itEMqq">
+    <img src="detergent.jpg" alt="Laundry Sheets" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Laundry Sheets</h3>
+  </a>
+  <p class="text-gray-600">₹473</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 12 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Organic" data-price="332" data-rating="5">
+  <a href="https://amzn.to/4kIzcC9">
+    <img src="soap.jpg" alt="Organic Soap Bars" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Soap Bars</h3>
+  </a>
+  <p class="text-gray-600">₹332</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+<!-- Product 1 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Bamboo" data-price="169" data-rating="5">
+  <a href="https://amzn.to/4iPIv1b">
+    <img src="cook.png" alt="Bamboo Cooking Utensils" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Bamboo Cooking Utensils Set</h3>
+  </a>
+  <p class="text-gray-600">₹169</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 2 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Plant-based" data-price="349" data-rating="4.5">
+  <a href="https://amzn.to/4kWTTKG">
+    <img src="detergent.jpg" alt="Laundry Detergent Sheets" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Laundry Detergent Sheets - 60 Loads</h3>
+  </a>
+  <p class="text-gray-600">₹349</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 3 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Natural" data-price="155" data-rating="5">
+  <a href="https://amzn.to/41Mp8zf">
+    <img src="vinager.png" alt="Vinegar" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Vinegar</h3>
+  </a>
+  <p class="text-gray-600">₹155</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 4 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Bamboo" data-price="299" data-rating="3">
+  <a href="https://amzn.to/4iuEi3q">
+    <img src="bamboo.jpg" alt="Bamboo Soap Shelf" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Bamboo Soap Shelf</h3>
+  </a>
+  <p class="text-gray-600">₹299</p>
+  <p class="text-gray-600">⭐☆☆☆☆</p>
+</div>
+
+<!-- Product 5 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Sodium Bicarbonate" data-price="125" data-rating="5">
+  <a href="https://amzn.to/4kMV27o">
+    <img src="soda.png" alt="Baking Soda" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Baking Soda</h3>
+  </a>
+  <p class="text-gray-600">₹125</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 6 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Natural Minerals" data-price="399" data-rating="4.5">
+  <a href="https://amzn.to/4kMuMdn">
+    <img src="tab.png" alt="Toothpaste Tablets" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Toothpaste Tablets - Zero Waste</h3>
+  </a>
+  <p class="text-gray-600">₹399</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 7 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Live Plant" data-price="179" data-rating="5">
+  <a href="https://amzn.to/4kNtUoS">
+    <img src="air.png" alt="Indoor Air-Purifying Plants" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Indoor Air-Purifying Plants</h3>
+  </a>
+  <p class="text-gray-600">₹179</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 8 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Silk" data-price="249" data-rating="5">
+  <a href="https://amzn.to/4kIL9aP">
+    <img src="jar.jpg" alt="Silk Dental Floss" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Silk Dental Floss - Refillable Jar</h3>
+  </a>
+  <p class="text-gray-600">₹249</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 9 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Stainless Steel" data-price="398" data-rating="4.5">
+  <a href="https://amzn.to/4hxphMW">
+    <img src="lunch.png" alt="Eco-Friendly Lunch Box" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Eco-Friendly Lunch Box</h3>
+  </a>
+  <p class="text-gray-600">₹398</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 10 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Soy Wax" data-price="323" data-rating="5">
+  <a href="https://amzn.to/4htKCXu">
+    <img src="soy.png" alt="Soy Candles" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Soy Candles</h3>
+  </a>
+  <p class="text-gray-600">₹323</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 11 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Organic Cotton" data-price="2155" data-rating="5">
+  <a href="https://amzn.to/41SOOu7">
+    <img src="sheet.png" alt="Organic Cotton Bedsheet" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Cotton Bedsheet</h3>
+  </a>
+  <p class="text-gray-600">₹2155</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+
+<!-- Product 12 -->
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Organic" data-price="368" data-rating="5">
+  <a href="https://amzn.to/4bYlpmY">
+    <img src="soap.jpg" alt="Organic Soap Bars" class="w-full h-64 object-cover rounded-lg mb-4">
+    <h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Soap Bars</h3>
+  </a>
+  <p class="text-gray-600">₹368</p>
+  <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+</div>
+      </div>
+    </div>
+  </section>
+  <script>
+     document.addEventListener("DOMContentLoaded", function () {
+          const navLinks = document.querySelectorAll(".nav-link");
+          navLinks.forEach(link => {
+            link.addEventListener("click", function () {
+              navLinks.forEach(nav => nav.classList.remove("active"));
+              this.classList.add("active");
+            });
+          });
+          const saleTexts = [
+        'The greatest threat to our planet is the belief that someone else will save it 🌍♻️✨ <a href="shopall.html" class="underline">Shop Now!</a>',
+        'Buy less, choose well, make it last 🛍️✨🌱 <a href="shopall.html" class="underline">Shop Now!!</a>',
+        'Every time you spend money, you are casting a vote for the kind of world you want💰🌏✅ ✨ <a href="shoapall.html" class="underline">Shop Now!!</a>',
+        'Nature does not need us but we need nature protect it! 🌳🤝',
+        "Ditch plastic, embrace bamboo—nature’s gift to sustainability! 🎍🚫🛍️",
+        "Every step towards eco-friendliness is a step towards a better planet. 👣🌎"  ,
+        "A clean earth is a happy earth—go green, live clean! 🌍😊" ,
+      ];
+          let currentIndex = 0;
+    
+          function updateSaleText() {
+            document.getElementById('sale-text').innerHTML = saleTexts[currentIndex];
+            currentIndex = (currentIndex + 1) % saleTexts.length;
+          }
+    
+          updateSaleText();
+          setInterval(updateSaleText, 5000); // Change text every 5 seconds
+        });
+
+        
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const products = document.querySelectorAll(".product");
+      const materialFilters = document.querySelectorAll(".material-filter");
+      const priceMinInput = document.getElementById("price-min");
+      const priceMaxInput = document.getElementById("price-max");
+      const ratingFilter = document.getElementById("rating-filter");
+      const applyFiltersButton = document.getElementById("apply-filters");
+  
+      // Function to filter products
+      function filterProducts() {
+        const selectedMaterials = Array.from(materialFilters)
+          .filter((checkbox) => checkbox.checked)
+          .map((checkbox) => checkbox.value.toLowerCase());
+        const priceMin = parseFloat(priceMinInput.value) || 0;
+        const priceMax = parseFloat(priceMaxInput.value) || Infinity;
+        const selectedRating = parseFloat(ratingFilter.value) || 0;
+  
+        products.forEach((product) => {
+          const material = product.dataset.material?.toLowerCase() || "";
+          const price = parseFloat(product.dataset.price) || 0;
+          const rating = parseFloat(product.dataset.rating) || 0;
+  
+          const matchesMaterial =
+            selectedMaterials.length === 0 || selectedMaterials.includes(material);
+          const matchesPrice = price >= priceMin && price <= priceMax;
+          const matchesRating = rating >= selectedRating;
+  
+          if (matchesMaterial && matchesPrice && matchesRating) {
+            product.style.display = "block";
+          } else {
+            product.style.display = "none";
+          }
+        });
+      }
+  
+      // Attach event listener to the "Apply Filters" button
+      applyFiltersButton.addEventListener("click", filterProducts);
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="bg-green-900 text-gray-300 py-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h2 class="text-2xl font-extrabold text-white">Eco Shop</h2>
+        <p class="mt-3 text-sm opacity-80">Redefining sustainable shopping with elegance and responsibility.</p>
+      </div>
+      <div>
+        <h2 class="text-lg font-semibold text-white">Explore</h2>
+        <ul class="mt-3 space-y-2">
+          <li><a href="ecoshop.html" class="hover:text-green-400">Home</a></li>
+          <li><a href="shopall.html" class="hover:text-green-400">Shop</a></li>
+          <li><a href="recommendation.html" class="hover:text-green-400">Assistant</a></li>
+          <li><a href="blog.html" class="hover:text-green-400">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-lg font-semibold text-white">Stay Connected</h2>
+        <div class="flex space-x-5 mt-3">
+          <a href="#" class="hover:text-blue-400 transition duration-300 transform hover:scale-110"><i class="fa-brands fa-facebook"></i></i></a>
+                <a href="#" class="hover:text-blue-400 transition duration-300 transform hover:scale-110"><i class="fa-brands fa-twitter"></i></i></a>
+                <a href="#" class="hover:text-blue-400 transition duration-300 transform hover:scale-110"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 mt-8 text-center text-sm py-4 text-gray-500">
+      &copy; 2025 EcoShop. All Rights Reserved.
+    </div>
+  </footer>
+  <div id="searchPanel" class="fixed top-0 right-0 w-96 h-full bg-white shadow-xl transition-transform translate-x-full overflow-y-auto">
+    <div class="flex justify-between items-center p-4 border-b">
+      <h2 class="text-xl font-bold">Search</h2>
+      <button id="closePanel" class="focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 hover:text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div class="p-4">
+      <!-- Search Bar Input -->
+      <input id="searchInput" type="text" placeholder="Search products..."
+             class="w-full p-3 border border-gray-300 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-green-500 mb-4" />
+      
+   
+      <!-- Products Results Section -->
+      <div id="productsSection">
+        <h3 class="text-lg font-semibold border-b pb-2 mb-2">Products</h3>
+        <div id="productsResults" class="space-y-2"></div>
+      </div>
+    </div>
+  </div>
+  <script src="ecoshop.js"></script>
+  
+</body>
+
+</html>

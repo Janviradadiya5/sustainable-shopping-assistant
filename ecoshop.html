@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="icon" type="image/png" href="logo.png">
+    <!-- OR for .ico file -->
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <title>Eco Shop</title>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .translate-x-full {
+      transform: translateX(100%);
+    }
+    .translate-x-0 {
+      transform: translateX(0);
+    }
+    .transition-transform {
+      transition: transform 0.3s ease-in-out;
+    }
+    .nav-link {
+      position: relative;
+      padding-bottom: 5px;
+      cursor: pointer;
+      margin: 0 20px;
+    }
+
+  
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background-color: transparent;
+      transition: background-color 0.3s ease-in-out;
+    }
+    .nav-link:hover::after, .nav-link.active::after {
+      background-color: #206444;
+    }
+    .promo-text {
+      position: absolute;
+      top: 10%;
+      left: 5%;
+      color:green;
+      text-align: left;
+    }
+    .promo-title {
+      font-size: 3rem; /* Smaller font size */
+      font-weight: 600;
+      color:white;
+    }
+    .promo-subtitle {
+      font-size: 2rem; /* Smaller font size */
+      font-weight: 400;
+    }
+    .button {
+    background-color: darkgreen; /* Green background color */
+    color: white; /* White text color */
+    padding: 15px 30px; /* Padding for the button */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    font-family: Arial, sans-serif; /* Font family */
+    font-size: 18px; /* Font size */
+    display: inline-block; /* Inline-block display */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-decoration: none; /* Remove underline from text */
+    margin-top: 25px; /* Adjust the value as needed */
+    }
+    .button:hover {
+            background-color: white;
+            color: green;
+            border: 2px solid green; /* optional, adds a green border on hover */
+        
+}
+header{
+  background-color: #206444;
+}
+.header .breadcrumb {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        .header .title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+        }
+footer{
+  color: aliceblue;
+  background-color: black;
+}
+b{
+  color: chocolate;
+  right: 10%;
+}
+.prom-text {
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      color: black;
+      text-align: left;
+    }
+    .prom-title {
+      font-size: 3rem; /* Smaller font size */
+      font-weight: 600;
+    }
+    .prom-subtitle{ 
+      font-size: 2rem; /* Smaller font size */
+      font-weight: 400;
+      color:#FFFFFF;
+  }
+  .product:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+  /* Mobile devices (by default 100% width hoti hai) */
+  @media (max-width: 640px) {
+    .nav-link {
+      margin: 0 10px;
+    }
+    .promo-text {
+      top: 5%;
+      left: 5%;
+    }
+    .promo-title {
+      font-size: 2rem;
+    }
+    .promo-subtitle {
+      font-size: 1.5rem;
+    }
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    .prom-text {
+      top: 5%;
+      right: 5%;
+    }
+    .prom-title {
+      font-size: 2rem;
+    }
+    .prom-subtitle {
+      font-size: 1.5rem;
+    }
+  }
+  @media (min-width: 641px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+
+  footer .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns in footer */
+  }
+
+  .promo-title {
+    font-size: 2.5rem;
+  }
+
+  .promo-subtitle {
+
+    font-size: 1.8rem;
+  }
+}
+
+/* Laptops and Desktops (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on laptops */
+  }
+  footer .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns in footer */
+  }
+
+  .promo-title {
+    font-size: 3rem;
+  }
+
+  .promo-subtitle {
+    font-size: 2rem;
+  }}
+ 
+
+
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const navLinks = document.querySelectorAll(".nav-link");
+      navLinks.forEach(link => {
+        link.addEventListener("click", function () {
+          navLinks.forEach(nav => nav.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      const saleTexts = [
+        'The greatest threat to our planet is the belief that someone else will save it 🌍♻️✨ <a href="shopall.html" class="underline">Shop Now!</a>',
+        'Buy less, choose well, make it last 🛍️✨🌱 <a href="shopall.html" class="underline">Shop Now!!</a>',
+        'Every time you spend money, you are casting a vote for the kind of world you want💰🌏✅ ✨ <a href="shoapall.html" class="underline">Shop Now!!</a>',
+        'Nature does not need us but we need nature protect it! 🌳🤝',
+        "Ditch plastic, embrace bamboo—nature’s gift to sustainability! 🎍🚫🛍️",
+        "Every step towards eco-friendliness is a step towards a better planet. 👣🌎"  ,
+        "A clean earth is a happy earth—go green, live clean! 🌍😊" ,
+      ];
+         
+    
+
+      let currentIndex = 0;
+
+      function updateSaleText() {
+        document.getElementById('sale-text').innerHTML = saleTexts[currentIndex];
+        currentIndex = (currentIndex + 1) % saleTexts.length;
+      }
+
+      updateSaleText();
+      setInterval(updateSaleText, 5000); // Change text every 5 seconds
+    });
+  </script>
+</head>
+<body>
+
+  
+  <!-- Top Header -->
+  <header class="text-white text-sm text-center py-4">
+    <p id="sale-text"></p>
+  </header>
+
+  <!-- Navbar -->
+ <!-- Navbar -->
+<nav class="bg-white shadow px-10 py-6 flex justify-between items-center">
+  <!-- Logo -->
+  <div class="flex items-center space-x-3">
+    <img src="logo.png" alt="Eco Shop Logo" class="h-10">
+    <span class="text-3xl font-semibold text-green-800">Eco Shop</span>
+  </div>
+
+  <!-- Hamburger Icon (Visible on Mobile) -->
+  <button id="hamburger" class="block md:hidden text-gray-800 text-3xl focus:outline-none">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <!-- Navigation Links -->
+  <ul id="navLinks" class="hidden md:flex text-gray-800 font-medium text-lg space-x-6">
+    <li><a href="ecoshop.html" class="nav-link active">Shop</a></li>
+    <li><a href="home and kichen.html" class="nav-link">Home & Kitchen</a></li>
+    <li><a href="cleaning.html" class="nav-link">Cleaning</a></li>
+    <li><a href="bathroom.html" class="nav-link">Bathroom</a></li>
+    <li><a href="beauty.html" class="nav-link">Beauty</a></li>
+    <li><a href="recomandation.html" class="nav-link">Assistant</a></li>
+  </ul>
+
+  <!-- Icons -->
+  <div class="hidden md:flex items-center space-x-6 text-gray-700">
+    <button id="searchIcon" class="hover:opacity-60 focus:outline-none">
+      <i class="fa-solid fa-magnifying-glass text-2xl"></i>
+    </button>
+    <a href="blog.html"><i class="fa-regular fa-address-card text-2xl hover:opacity-60"></i></a>
+    <a href="shopall.html"><i class="fa-solid fa-bag-shopping text-2xl hover:opacity-60"></i></a>
+  </div>
+</nav>
+
+<!-- Mobile Menu (Hidden by Default) -->
+<div id="mobileMenu" class="hidden bg-white shadow-lg absolute top-20 left-0 w-full z-50">
+  <ul class="flex flex-col text-gray-800 font-medium text-lg space-y-4 p-6">
+    <li><a href="ecoshop.html" class="nav-link active">Shop</a></li>
+    <li><a href="home-and-kitchen.html" class="nav-link">Home & Kitchen</a></li>
+    <li><a href="cleaning.html" class="nav-link">Cleaning</a></li>
+    <li><a href="bathroom.html" class="nav-link">Bathroom</a></li>
+    <li><a href="beauty.html" class="nav-link">Beauty</a></li>
+    <li><a href="recomandation.html" class="nav-link">Assistant</a></li>
+  </ul>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  hamburger.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+});
+</script>
+
+  <!-- Image Section Below Navbar -->
+  <div class="w-full relative">                                               
+    <img src="banner.jpg" alt="Promotional Banner" class="w-full" />
+    <div class="promo-text">
+      <div class="promo-title">Your Sustainable Journey Starts Here!</div>
+      <div class="promo-subtitle">Shop Ecofriendly Products</div>
+      <div class="button"><a href="shopall.html">Shop Now!!</a>
+      </div>
+ 
+  </div>
+</div>
+  
+
+
+  <!-- Products Section -->
+  <section class="bg-white py-8">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Best Products of the Month</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Product 1 -->
+        <div class="product border border-gray-200 rounded-lg p-4">
+          
+            <a href="https://amzn.to/4c2Uc2B">
+          <img src="facialcleansingoil.jpg" alt="Facial Cleansing Oil" class="w-full h-64 object-cover rounded-lg mb-4">
+          </a>
+          
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Facial Cleansing Oil</h3>
+          <p class="text-gray-600">₹389</p>
+          <p class="text-gray-600">12 review</p>
+          <p class="text-gray-600">⭐⭐</p>
+          <div class="w-full flex justify-center mt-2">
+            
+      </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="product border border-gray-200 rounded-lg p-4">
+          
+            <a href="https://amzn.to/4inH8ag">
+          <img src="sundaybrunch.jpg" alt="Sunday Brunch - Tea Bags" class="w-full h-64 object-cover rounded-lg mb-4">
+          
+          </a>
+        
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Sunday Brunch - Tea Bags</h3>
+          <p class="text-gray-600">₹145</p>
+          <p class="text-gray-600">5 reviews</p>
+          <p class="text-gray-600">⭐⭐⭐⭐</p>
+          <div class="w-full flex justify-center mt-2">
+           
+      </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="product border border-gray-200 rounded-lg p-4">
+         
+          <a href="https://amzn.to/41JNA4f">
+          <img src="maskara.jpg"class="w-full h-64 object-cover rounded-lg mb-4">
+          </a>
+          
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Recyclable Mascara - Zero Waste</h3>
+          <p class="text-gray-600">₹696</p>
+          <p class="text-gray-600">3.6 reviews</p>
+          <p class="text-gray-600">⭐⭐⭐</p>
+          <div class="w-full flex justify-center mt-2">
+          
+      </div>
+        </div>
+        <!-- Product 4 -->
+        <div class="product border border-gray-200 rounded-lg p-4">
+        <a href="https://amzn.to/4bKa1ej">
+          <img src="mat.jpg"class="w-full h-64 object-cover rounded-lg mb-4">
+          </a>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Yoga Mat </h3>
+          <p class="text-gray-600">₹399</p>
+          <p class="text-gray-600">4.8 reviews</p>
+          <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+          <div class="w-full flex justify-center mt-2">
+            
+      </div>
+        </div>
+        <!-- Product 5 -->
+        <div class="product border border-gray-200 rounded-lg p-4">
+          <a href="https://amzn.to/4iLqj96">
+          <img src="mug.jpg" alt="bamboo cofee mug" class="w-full h-64 object-cover rounded-lg mb-4">
+          </a>
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">Bamboo cofee Mug</h3>
+          <p class="text-gray-600">₹373</p>
+          <p class="text-gray-600">3 reviews</p>
+          <p class="text-gray-600">⭐⭐⭐⭐</p>
+          <div class="w-full flex justify-center mt-2">
+            
+      </div>
+        </div>
+        <!-- Product 6 -->
+        <div class="product border border-gray-200 rounded-lg p-4">
+          <a href="https://amzn.to/41Ive3D">
+          <img src="scrub.png"class="w-full h-64 object-cover rounded-lg mb-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">scruber</h3>
+        </a>
+          <p class="text-gray-600">₹469</p>
+          <p class="text-gray-600">4 reviews</p>
+          <p class="text-gray-600">⭐⭐⭐</p>
+          <div class="w-full flex justify-center mt-2">
+          
+      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+
+      <div class="w-full relative">   
+
+    <img src="promosionbanner.jpg" alt="Promotional Banner" class="-full" />
+    <div class="prom-text">
+      <div class="prom-title">Shop all Products</div>
+      <div class="prom-subtitle">🌱<span class="text-green-600"> "Think Green, Shop Smart </span>, Eco-Friendly Choices Await! 🛒♻️ </div>
+      <div class="button"><a href="shopall.html">Shop product</a></div>
+    </div>
+  </div>
+
+  <section class="bg-white py-8">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6"> Best products of the Month</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Product 1 -->
+
+
+        <div class="product border border-gray-200 rounded-lg p-4">
+          <a href="https://amzn.to/4kWTTKG">
+
+            <img src="detergent.jpg"class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Laundry Detergent Sheets - 60 Loads</h3>
+            </a>
+            <p class="text-gray-600">₹349</p>
+            <p class="text-gray-600">4 reviews</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+            <div class="w-full flex justify-center mt-2">
+              
+        </div>
+           
+        </div>
+        
+        <div class="product border border-gray-200 rounded-lg p-4">
+          <a href="https://amzn.to/4iJ4Z3Z">
+
+            <img src="led.jpg "class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Green glow led bulb</h3>
+            </a>
+            <p class="text-gray-600">₹59</p>
+            <p class="text-gray-600">4.1 reviews</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+            <div class="w-full flex justify-center mt-2">
+             
+            </div>
+        </div>
+        
+        <div class="product border border-gray-200 rounded-lg p-4">
+          <a href="https://amzn.to/4iFcdGJ">
+
+            <img src="skin.png" alt="skin care kit" class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">plant pure vegan skincare-kit</h3>
+            </a>
+            <p class="text-gray-600">₹516</p>
+            <p class="text-gray-600"> 5 reviews</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+            <div class="w-full flex justify-center mt-2">
+            
+            </div>
+        </div>
+        
+        <div class="product border border-gray-200 rounded-lg p-4">
+          <a href="https://amzn.to/4iuEi3q">
+
+            <img src="bamboo.jpg"class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Bamboo Soap Shelf</h3>
+            </a>
+            <p class="text-gray-600">₹299</p>
+            <p class="text-gray-600">No reviews</p>
+            <p class="text-gray-600">⭐☆☆☆☆</p>
+            <div class="w-full flex justify-center mt-2">
+             
+            </div>
+        </div>
+        
+        <div class="product border border-gray-200 rounded-lg p-4">
+          <a href="https://amzn.to/4itbI2m">
+
+            <img src="cloth.jpg" alt="Reusable cleaning cloths" class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Reusable cleaning cloths</h3>
+            </a>
+            <p class="text-gray-600">₹284</p>
+            <p class="text-gray-600">4 reviews</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+            <div class="w-full flex justify-center mt-2">
+             
+            </div>
+        </div>
+        
+        <div class="product border border-gray-200 rounded-lg p-4">
+          <a href="https://amzn.to/4kJ6Pnf">
+            <img src="botle.jpg" class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">reusable water bottle</h3>
+          </a>
+            <p class="text-gray-600">₹319</p>
+            <p class="text-gray-600">2 reviews</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+            <div class="w-full flex justify-center mt-2">
+           
+            </div>
+        </div>
+        <div class="product border border-gray-200 rounded-lg p-4">
+          
+         <a href="https://amzn.to/4hvaxOx">
+            <img src="soap.jpg" alt="Bamboo Charcoal Floss - Refillable Jar" class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">bar soaps</h3>
+            </a>
+            <p class="text-gray-600">₹617</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+            <div class="w-full flex justify-center mt-2">
+            
+            </div>
+        </div>
+        
+        <div class="product border border-gray-200 rounded-lg p-4">
+          <a href="https://amzn.to/4kIL9aP">
+            <img src="jar.jpg" alt="Silk Dental Floss - Refillable Jar" class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Silk Dental Floss - Refillable Jar</h3>
+          </a>
+            <p class="text-gray-600">₹249</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+            <div class="w-full flex justify-center mt-2">
+              
+            </div>
+        </div>
+        
+        <div class="product border border-gray-200 rounded-lg p-4">
+          <a href="https://amzn.to/4bLYFq8">
+            <img src="lip.jpg" alt="Lip Therapy Balm - Zero Waste Lip Care" class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Lip Therapy Balm - Zero Waste Lip Care</h3>
+            </a>
+            <p class="text-gray-600">₹169</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+            <div class="w-full flex justify-center mt-2">
+            
+            </div>
+        </div>
+        
+        <div class="product border border-gray-200 rounded-lg p-4">
+          <a href="https://amzn.to/4iSm63r">
+            <img src="razor.jpg" alt="Zero Waste Safety Razor" class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Zero Waste Safety Razor</h3>
+            </a>
+            <p class="text-gray-600">₹319</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+            <div class="w-full flex justify-center mt-2">
+              
+            </div>
+        </div>
+        <div class="product border border-gray-200 rounded-lg p-4">
+          <a href="https://amzn.to/4iKHnvP">
+            <img src="tooth.jpg" alt="castilesoap" class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">bamboo toothbrush</h3>
+            </a>
+            <p class="text-gray-600">₹199</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+            <div class="w-full flex justify-center mt-2">
+              
+            </div>
+        </div>
+        <div class="product border border-gray-200 rounded-lg p-4">
+          <a href="https://amzn.to/4bL5rMR">
+            <img src="bag.jpg" alt="shopping bags" class="w-full h-64 object-cover rounded-lg mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">shopping bags</h3>
+            </a>
+            <p class="text-gray-600">₹228</p>
+            <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
+            <div class="w-full flex justify-center mt-2">
+         
+            </div>
+        </div>
+        </div>
+        </div>
+        </section>
+
+        <footer class="bg-green-900 text-gray-300 py-10 animate-fade-in">
+          <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Brand & Description -->
+            <div class="transform transition duration-300 hover:scale-105">
+              <h2 class="text-2xl font-extrabold text-white">Eco Shop</h2>
+              <p class="mt-3 text-sm opacity-80">Redefining sustainable shopping with elegance and responsibility.</p>
+            </div>
+        
+            <!-- Navigation Links -->
+            <div>
+              <h2 class="text-lg font-semibold text-white">Explore</h2>
+              <ul class="mt-3 space-y-2">
+                <li><a href="ecoshop.html" class="hover:text-green-400 transition duration-300">Home</a></li>
+                <li><a href="shopall.html" class="hover:text-green-400 transition duration-300">Shop</a></li>
+                <li><a href="recomandation.html" class="hover:text-green-400 transition duration-300">Assistant</a></li>
+                <li><a href="blog.html" class="hover:text-green-400 transition duration-300">Contact Us</a></li>
+              </ul>
+            </div>
+        
+            <!-- Social Media -->
+            <div>
+              <h2 class="text-lg font-semibold text-white">Stay Connected</h2>
+              <div class="flex space-x-5 mt-3">
+                <a href="#" class="hover:text-blue-400 transition duration-300 transform hover:scale-110"><i class="fa-brands fa-facebook"></i></i></a>
+                <a href="#" class="hover:text-blue-400 transition duration-300 transform hover:scale-110"><i class="fa-brands fa-twitter"></i></i></a>
+                <a href="#" class="hover:text-blue-400 transition duration-300 transform hover:scale-110"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+            </div>
+        
+          </div>
+        
+          <div class="border-t border-gray-700 mt-8 text-center text-sm py-4 text-gray-500">
+            &copy; 2025 EcoShop. All Rights Reserved.
+          </div>
+        </footer>
+
+        <div id="searchPanel" class="fixed top-0 right-0 w-96 h-full bg-white shadow-xl transition-transform translate-x-full overflow-y-auto">
+          <div class="flex justify-between items-center p-4 border-b">
+            <h2 class="text-xl font-bold">Search</h2>
+            <button id="closePanel" class="focus:outline-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 hover:text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+          <div class="p-4">
+            <!-- Search Bar Input -->
+            <input id="searchInput" type="text" placeholder="Search products..."
+                   class="w-full p-3 border border-gray-300 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-green-500 mb-4" />
+            
+         
+            <!-- Products Results Section -->
+            <div id="productsSection">
+              <h3 class="text-lg font-semibold border-b pb-2 mb-2">Products</h3>
+              <div id="productsResults" class="space-y-2"></div>
+            </div>
+          </div>
+        </div>
+        <script src="ecoshop.js"></script>
+       
+        
+        
+</body>
+</html>
+        
+
+  
+
+ 
+
+
+
+      

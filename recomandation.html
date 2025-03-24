@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="logo.png">
+  <!-- OR for .ico file -->
+  <link rel="icon" type="image/x-icon" href="logo.png">
+  <title>Sustainable Shopping - Advanced Real-Time Search</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .translate-x-full { transform: translateX(100%); }
+    .translate-x-0   { transform: translateX(0); }
+    .transition-transform { transition: transform 0.3s ease-in-out; }
+    /* Responsive Design */
+
+/* Mobile Devices (max-width: 640px) */
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+
+  .nav .title {
+    font-size: 1.5rem; /* Smaller title font size */
+  }
+
+  .button {
+    font-size: 0.9rem; /* Smaller button text */
+    padding: 0.5rem 1rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablets (min-width: 641px and max-width: 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+
+  .nav .title {
+    font-size: 2rem; /* Adjust title font size for tablets */
+  }
+
+  .button {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Laptops and Desktops (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
+  }
+  .nav .title {
+    font-size: 2.5rem; /* Default title font size */
+  }
+
+  .button {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+  }
+}
+
+  </style>
+</head>
+<body class="bg-green-50 text-gray-800 p-6">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold text-center mb-8">
+      Sustainable Shopping Assistant
+    </h1>
+
+    <!-- Search Bar Section -->
+    <section id="searchSection" class="mb-4">
+      <h2 class="text-2xl font-semibold mb-4">Search Products and get details of the products</h2>
+      <input
+        type="text"
+        id="searchInput"
+        class="w-full p-3 border border-gray-300 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-green-500"
+        placeholder="Type product name ..."
+      />
+    </section>
+
+    <!-- Filter Section -->
+    <section id="filterSection" class="mb-4">
+      <h3 class="text-lg font-semibold mb-2">Filters</h3>
+      <div class="flex flex-wrap gap-4">
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600 filter-checkbox" value="zero-waste">
+          <span class="ml-1 text-sm">Zero-Waste</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600 filter-checkbox" value="biodegradable">
+          <span class="ml-1 text-sm">biodegradable</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600 filter-checkbox" value="eco friendly">
+          <span class="ml-1 text-sm">eco friendly</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600 filter-checkbox" value="low-carbon footprint">
+          <span class="ml-1 text-sm">Low-Carbon Footprint</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox h-4 w-4 text-green-600 filter-checkbox" value="non Toxic">
+          <span class="ml-1 text-sm">non toxic</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Real-Time Search Results Section -->
+    <section id="resultsSection" class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Search Results</h2>
+      <div id="resultsContainer" class="space-y-4">
+        <!-- Dynamic product cards will be injected here -->
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function debounce(func, delay) {
+      let timeout;
+      return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), delay);
+      };
+    }
+
+    async function fetchProducts(query) {
+      const exampleData = [
+        {
+          id: 1,
+          title: "Facial Cleansing Oil",
+          sustainabilityRating: 4,
+          carbonFootprint: "2.28%",
+          price: "389",
+          image: "facialcleansingoil.jpg",
+          recyclability: "high",
+          material: "organic",
+          tags: ["zero-waste", "sustainable packaging", "low-carbon footprint"]
+        },
+        { 
+          id: 2, 
+          title: "Sunday Brunch - Tea Bags", 
+          sustainabilityRating: 4.5,
+          carbonFootprint: "32.90%", 
+          price: "145",
+          image: "sundaybrunch.jpg",
+          recyclability: "high", 
+          material: "recyclable paper canisters",   
+          tags: ["organic tea", "carbon neutral"]
+        },
+
+        {
+          id: 3, 
+          title: "Recyclable Mascara - Zero Waste", 
+          sustainabilityRating: 4.5,
+          carbonFootprint:"40-50%", 
+          price: "696",
+          image: "maskara.jpg",
+          recyclability: "high", 
+          material: "recyclable",   
+          tags: ["recycable", "zero-waste"]
+      
+        },
+        {
+
+          id: 4, 
+          title: "Yoga Mate", 
+          sustainabilityRating: 4.5,
+          carbonFootprint:"40-50%", 
+          price: "399",
+          image: "mat.jpg",
+          recyclability: "high", 
+          material: "recyclable",   
+          tags: ["recycable", "zero-waste"]
+        
+        },
+        {
+          id: 5, 
+          title: "Bamboo Coffee Mug", 
+          sustainabilityRating: "4",
+          carbonFootprint:"0.11kg", 
+          price: "373",
+          image: "mug.jpg",
+          recyclability: "low", 
+          material: "bamboo fiber",   
+          tags: ["reusable", "natural material"]
+        
+        },
+        {
+          id: 6, 
+          title: "Scruber", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"0.63kg", 
+          price: "469",
+          image: "scrub.png",
+          recyclability: "high", 
+          material: "sisal,coconut husk,bamboo",   
+          tags: ["biodegradeble", "natural material"]
+        
+        },
+        {
+          id: 7, 
+          title: "Laundry Detergent Sheets - 60 Loads", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"0.76kg", 
+          price: "349",
+          image: "detergent.jpg",
+          recyclability: "high", 
+          material: "recycable packing ",   
+          tags: ["sustainable packaging", "natural material"]
+        
+        },
+        {
+          id: 8,
+          title: "green glow led bulb", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"204.6kg per year", 
+          price: "59",
+          image: "led.jpg",
+          recyclability: "high", 
+          material: "metal,gallium nitride glass",   
+          tags: ["energy efficient", "long lifespan","eco friendly"]
+        
+        },
+        {
+          id: 9,
+          title: "plant pure vegan skincare kit", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"NaN", 
+          price: "516",
+          image: "skin.png",
+          recyclability: "high", 
+          material: "free from chemicals,plant based ingrideant",   
+          tags: ["eco friendly", "cruetly free"]
+        
+        },
+        {
+          id: 10,
+          title: "Bamboo soap sheff", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"NaN", 
+          price: "299",
+          image: "bamboo.jpg",
+          recyclability: "high", 
+          material: "made by bamboo",   
+          tags: ["eco friendly", "biodegradable"]
+        
+        },
+        {
+          id: 11,
+          title: "Reusable cleaning cloths", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"11.9kg", 
+          price: "284",
+          image: "bamboo.jpg",
+          recyclability: "high", 
+          material: "organic cotton",   
+          tags: ["eco friendly", "biodegradable","reusable"]
+        
+        },
+        
+        {
+          id: 12,
+          title: "reusable water botle", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"280g", 
+          price: "319",
+          image: "botle.jpg",
+          recyclability: "high", 
+          material: "stainlesssteel",   
+          tags: ["eco friendly", "biodegradable","reusable"]
+        
+        },
+        {
+          id: 13,
+          title: "soap bars", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"1.65kg", 
+          price: "617",
+          image: "soap.jpg",
+          recyclability: "high", 
+          material: "natural hurbs",   
+          tags: ["eco friendly", "biodegradable","natural"]
+        
+        },
+        {
+          id: 14,
+          title: "refinable jar", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"1.65kg", 
+          price: "249",
+          image: "jar.jpg",
+          recyclability: "high", 
+          material: "glass",   
+          tags: ["eco friendly", "biodegradable","refinable"]
+        
+        },
+        {
+          id: 15,
+          title: "zero waste safty razor", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"1.65kg", 
+          price: "139",
+          image: "razor.jpg",
+          recyclability: "high", 
+          material: "brass,bamboo,stainlesssteel",   
+          tags: ["eco friendly", "biodegradable","zero-waste"]
+        
+        },
+        {
+          id: 16,
+          title: "bamboo toothbrush", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"1.65kg", 
+          price: "199",
+          image: "tooth.jpg",
+          recyclability: "high", 
+          material: "brass,bamboo",   
+          tags: ["eco friendly", "biodegradable","zero-waste"]
+        
+        },
+        {
+          id: 17,
+          title: "shopping bag", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"0.2kg", 
+          price: "228",
+          image: "bag.jpg",
+          recyclability: "high", 
+          material: "cotton,jute",   
+          tags: ["eco friendly", "biodegradable","zero-waste"]
+        
+        },
+        {
+          id: 18,
+          title: "bamboo cooking utensils", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"0.2kg", 
+          price: "169",
+          image: "cook.png",
+          recyclability: "high", 
+          material: "bamboo",   
+          tags: ["eco friendly", "biodegradable","zero-waste"]
+        
+        },
+        {
+          id: 19, 
+          title: "Laundry Detergent Sheets - 60 Loads", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"0.76kg", 
+          price: "349",
+          image: "detergent.jpg",
+          recyclability: "high", 
+          material: "recycable packing ",   
+          tags: ["sustainable cleaning", "natural material"]
+        
+        },
+        {
+          id: 20, 
+          title: "vinager", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"1.18kg", 
+          price: "349",
+          image: "vinager.png",
+          recyclability: "high", 
+          material: "acitic acid and water ",   
+          tags: ["biodegradable", "natural material"]
+        
+        },
+        {
+          id: 21,
+          title: "Bamboo soap sheff", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"NaN", 
+          price: "299",
+          image: "bamboo.jpg",
+          recyclability: "high", 
+          material: "made by bamboo",   
+          tags: ["eco friendly", "biodegradable"]
+        
+        },
+        {
+          id: 22,
+          title: "Baking soda", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"1.14kg", 
+          price: "125",
+          image: "soda.png",
+          recyclability: "high", 
+          material: "Sodium bicarbonate",   
+          tags: ["eco friendly", "biodegradable","non toxic"]
+        },
+        {
+          id: 23,
+          title: "toothpaste tablates", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"1.14kg", 
+          price: "399",
+          image: "tab.png",
+          recyclability: "high", 
+          material: "natural ingridiants",   
+          tags: ["eco friendly", "biodegradable","non toxic"]
+        },
+        {
+          id: 24,
+          title: "Indoor Air-Purifying Plants", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"0.5kg", 
+          price: "179",
+          image: "air.png",
+          recyclability: "high", 
+          material: "natural plant",   
+          tags: ["air purifier","eco friendly", "biodegradable","non toxic"]
+        },
+        {
+          id: 25,
+          title: "refinable jar", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"1.65kg", 
+          price: "249",
+          image: "jar.jpg",
+          recyclability: "high", 
+          material: "glass",   
+          tags: ["eco friendly", "biodegradable","refinable"]
+        
+        },
+        {
+          id: 26,
+          title: "lunch box", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"1.65kg", 
+          price: "398",
+          image: "lunch.png",
+          recyclability: "high", 
+          material: "glass,steel,bamboo",   
+          tags: ["eco friendly", "biodegradable","refinable"]
+        
+        },
+        {
+          id: 27,
+          title: "eco soy candles", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"1.65kg", 
+          price: "323",
+          image: "soy.png",
+          recyclability: "high", 
+          material: "soybinoil,parafiin candles",   
+          tags: ["eco friendly", "biodegradable"]
+        
+        },
+        {
+          id: 28,
+          title: "cotton bedsheet", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"1.65kg", 
+          price: "2155",
+          image: "sheet.png",
+          recyclability: "high", 
+          material: "glass,steel,bamboo",   
+          tags: ["eco friendly", "biodegradable","refinable"]
+        
+        },
+        {
+          id: 29,
+          title: "Recyclable Mascara - Zero Waste", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"1.65kg", 
+          price: "387",
+          image: "maskara.jpg",
+          recyclability: "high", 
+          material: "natural",   
+          tags: ["eco friendly", "biodegradable","zero waste"]
+        
+        },
+        {
+          
+          id: 30,
+          title: "compact", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"0.5kg", 
+          price: "489",
+          image: "compac.jpg",
+          recyclability: "high", 
+          material: "natural",   
+          tags: ["eco friendly", "biodegradable","refinable"]
+        
+        },
+        {
+          
+          id: 31,
+          title: "mackup remove pads", 
+          sustainabilityRating: "4.5",
+          carbonFootprint:"0.5kg", 
+          price: "289",
+          image: "remove.png",
+          recyclability: "high", 
+          material: "natural",   
+          tags: ["eco friendly", "biodegradable","organic cotton"]
+        
+        },
+        {
+          
+          id: 32,
+          title: "sunscreen", 
+          sustainabilityRating: "4",
+          carbonFootprint:"1kg", 
+          price: "1449",
+          image: "sun.png",
+          recyclability: "high", 
+          material: "natural",   
+          tags: ["eco friendly", "biodegradable","non toxic","uv protection"]
+        
+        },
+        {
+          
+          id: 33,
+          title: "toner", 
+          sustainabilityRating: "4",
+          carbonFootprint:"0.5kg", 
+          price: "1075",
+          image: "toner.jpg",
+          recyclability: "modrate to high", 
+          material: "natural",   
+          tags: ["eco friendly", "biodegradable","non toxic","alchohol free"]
+        
+        },
+        {
+          
+          id: 34,
+          title: "makeup kit", 
+          sustainabilityRating: "4",
+          carbonFootprint:"1-5kg", 
+          price: "1092",
+          image: "makeup.jpg",
+          recyclability: "modrate to high", 
+          material: "natural,plant based oils",   
+          tags: ["eco friendly", "biodegradable","non toxic","vegan"]
+        
+        },
+        {
+          
+          id: 35,
+          title: "reg lip stick", 
+          sustainabilityRating: "4",
+          carbonFootprint:"1-5kg", 
+          price: "75",
+          image: "stick.jpg",
+          recyclability: "modrate to high", 
+          material: "natural,plant based oils",   
+          tags: ["eco friendly", "biodegradable","non toxic","vegan"]
+        
+        },
+        {
+          
+          id: 36,
+          title: "face mask", 
+          sustainabilityRating: "4",
+          carbonFootprint:"1-5kg", 
+          price: "420",
+          image: "face.jpg",
+          recyclability: "modrate to high", 
+          material: "natural,plant based oils",   
+          tags: ["eco friendly", "biodegradable","non toxic","vegan"]
+        
+        },
+        {
+          
+          id: 37,
+          title: "Lip Therapy Balm - Zero Waste Lip Care", 
+          sustainabilityRating: "4",
+          carbonFootprint:"1-5kg", 
+          price: "249",
+          image: "lip.jpg",
+          recyclability: "modrate to high", 
+          material: "natural,plant based oils",   
+          tags: ["eco friendly", "biodegradable","non toxic","vegan"]
+        
+        },
+        {
+          
+          id: 38,
+          title: "soy candles", 
+          sustainabilityRating: "4",
+          carbonFootprint:"1-5kg", 
+          price: "284",
+          image: "soy.png",
+          recyclability: "modrate to high", 
+          material: "natural,plant based oils",   
+          tags: ["eco friendly", "biodegradable","non toxic","vegan"]
+        
+        },
+        {
+          
+          id: 42,
+          title: "toothpaste", 
+          sustainabilityRating: "4",
+          carbonFootprint:"1-3kg", 
+          price: "219",
+          image: "paste.jpg",
+          recyclability: "modrate ", 
+          material: "natura oils,baking soda",   
+          tags: ["eco friendly", "biodegradable","non toxic","natural oil"]
+        
+        },
+        {
+          
+          id: 43,
+          title: "toilet paper", 
+          sustainabilityRating: "4",
+          carbonFootprint:"0.5-2kg", 
+          price: "299",
+          image: "paper.png",
+          recyclability: "low", 
+          material: "natural,plant based recycled paper",   
+          tags: ["eco friendly", "biodegradable"]
+        
+        },
+        {
+          
+          id: 44,
+          title: "toilet brush", 
+          sustainabilityRating: "4",
+          carbonFootprint:"1-3kg", 
+          price: "260",
+          image: "brush.jpg",
+          recyclability: "modrate to high", 
+          material: "natural,plant based oils",   
+          tags: ["eco friendly", "biodegradable","zero-waste"]
+        
+        },
+        {
+          
+          id: 45,
+          title: "bamboo clips", 
+          sustainabilityRating: "4",
+          carbonFootprint:"0.2-0.5kg", 
+          price: "288",
+          image: "clip.jpg",
+          recyclability: "modrate to high", 
+          material: "bamboo",   
+          tags: ["eco friendly", "biodegradable","durable","reusable"]
+        
+        },
+        {
+          
+          id: 46,
+          title: "body wash", 
+          sustainabilityRating: "4",
+          carbonFootprint:"2-5kg", 
+          price: "336",
+          image: "toner.jpg",
+          recyclability: "modrate ", 
+          material: "natural,plant based oils",   
+          tags: ["eco friendly", "biodegradable","non toxic","sulphate free"]
+        
+        },
+        {
+          
+          id: 46,
+          title: "mirror cleaner", 
+          sustainabilityRating: "4",
+          carbonFootprint:"2-5kg", 
+          price: "336",
+          image: "mirror.jpg",
+          recyclability: "modrate ", 
+          material: "vinager,citric acid,essential oils",   
+          tags: ["eco friendly", "biodegradable","non toxic"]
+        
+        },
+        {
+          
+          id: 46,
+          title: "floor cleaner", 
+          sustainabilityRating: "4",
+          carbonFootprint:"1-3kg", 
+          price: "336",
+          image: "floor.jpg",
+          recyclability: "modrate ", 
+          material: "vinager,citric acid,essential oils",   
+          tags: ["eco friendly", "biodegradable","non toxic"]
+        
+        },
+        {
+          
+          id: 46,
+          title: "toilet cleaner", 
+          sustainabilityRating: "3.5",
+          carbonFootprint:"2-5kg", 
+          price: "336",
+          image: "floor.jpg",
+          recyclability: "modrate ", 
+          material: "vinager,citric acid,essential oils",
+          tags: ["eco friendly", "biodegradable","non toxic"]
+        
+        },
+        
+
+           
+        
+        
+        
+       
+
+
+      ];
+      return exampleData.filter(product =>
+        product.title.toLowerCase().includes(query.toLowerCase())
+      );
+    }
+
+    function getSelectedFilters() {
+      const checkboxes = document.querySelectorAll('.filter-checkbox');
+      let filters = [];
+      checkboxes.forEach(cb => {
+        if (cb.checked) {
+          filters.push(cb.value.toLowerCase());
+        }
+      });
+      return filters;
+    }
+    async function searchProducts() {
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();
+  const resultsContainer = document.getElementById('resultsContainer');
+  resultsContainer.innerHTML = "<p class='text-gray-600'>Searching...</p>";
+
+  try {
+    // Fetch all products
+    let products = await fetchProducts(query);
+    const selectedFilters = getSelectedFilters();
+
+    // Apply filters if any are selected
+    if (selectedFilters.length > 0) {
+      products = products.filter(product => {
+        const productTags = product.tags.map(tag => tag.toLowerCase());
+
+        // Check if all selected filters match the product's tags
+       return selectedFilters.some(filter => productTags.includes(filter));
+      });
+    }
+
+    // If no products match the filters or query
+    if (products.length === 0) {
+      resultsContainer.innerHTML = "<p class='text-gray-600'>No products found.</p>";
+      return;
+    }
+
+    // Clear previous results and display filtered products
+    resultsContainer.innerHTML = "";
+    products.forEach(product => {
+      const productDiv = document.createElement('div');
+      productDiv.className = "p-4 border rounded-lg bg-white shadow flex flex-col md:flex-row md:items-center justify-between";
+
+      const img = document.createElement('img');
+      img.src = product.image;
+      img.alt = product.title;
+      img.className = "h-16 w-16 rounded object-cover";
+
+      const detailsDiv = document.createElement('div');
+      detailsDiv.className = "flex flex-col flex-grow ml-4";
+      detailsDiv.innerHTML = `
+        <h3 class="text-xl font-bold">${product.title}</h3>
+        <p class="text-red-700">Carbon Footprint: ${product.carbonFootprint}</p>
+        <p class="text-green-700">Eco-Rating: ${product.sustainabilityRating} / 5</p>
+        <p class="text-blue-600 font-semibold">Price: ₹${product.price}</p>
+        <p class="text-sm text-gray-600">Recyclability: ${product.recyclability}</p>
+        <p class="text-sm text-gray-600">Material: ${product.material}</p>
+        <p class="text-sm text-gray-600">Tags: ${product.tags.join(', ')}</p>
+      `;
+
+      productDiv.appendChild(img);
+      productDiv.appendChild(detailsDiv);
+      resultsContainer.appendChild(productDiv);
+    });
+  } catch (error) {
+    resultsContainer.innerHTML = "<p class='text-red-600'>Error fetching products.</p>";
+    console.error(error);
+  }
+}
+
+    const debouncedSearch = debounce(searchProducts, 300);
+    document.getElementById('searchInput').addEventListener('input', debouncedSearch);
+    document.querySelectorAll('.filter-checkbox').forEach(cb => {
+      cb.addEventListener('change', searchProducts);
+    });
+  </script>
+</body>
+</html>

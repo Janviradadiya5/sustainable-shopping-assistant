@@ -1,0 +1,669 @@
+[
+  {
+      "id": 1,
+      "title": "Sustainable Product 1",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 20,
+      "price": "100",
+      "image": "product1.png",
+      "recyclability": "high",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 2,
+      "title": "Sustainable Product 2",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 25,
+      "price": "110",
+      "image": "product2.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 3,
+      "title": "Sustainable Product 3",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 30,
+      "price": "120",
+      "image": "product3.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 4,
+      "title": "Sustainable Product 4",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 35,
+      "price": "130",
+      "image": "product4.png",
+      "recyclability": "high",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 5,
+      "title": "Sustainable Product 5",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 40,
+      "price": "140",
+      "image": "product5.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 6,
+      "title": "Sustainable Product 6",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 20,
+      "price": "150",
+      "image": "product6.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 7,
+      "title": "Sustainable Product 7",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 25,
+      "price": "160",
+      "image": "product7.png",
+      "recyclability": "high",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 8,
+      "title": "Sustainable Product 8",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 30,
+      "price": "170",
+      "image": "product8.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 9,
+      "title": "Sustainable Product 9",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 35,
+      "price": "180",
+      "image": "product9.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 10,
+      "title": "Sustainable Product 10",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 40,
+      "price": "190",
+      "image": "product10.png",
+      "recyclability": "high",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 11,
+      "title": "Sustainable Product 11",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 20,
+      "price": "200",
+      "image": "product11.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 12,
+      "title": "Sustainable Product 12",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 25,
+      "price": "210",
+      "image": "product12.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 13,
+      "title": "Sustainable Product 13",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 30,
+      "price": "220",
+      "image": "product13.png",
+      "recyclability": "high",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 14,
+      "title": "Sustainable Product 14",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 35,
+      "price": "230",
+      "image": "product14.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 15,
+      "title": "Sustainable Product 15",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 40,
+      "price": "240",
+      "image": "product15.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 16,
+      "title": "Sustainable Product 16",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 20,
+      "price": "250",
+      "image": "product16.png",
+      "recyclability": "high",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 17,
+      "title": "Sustainable Product 17",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 25,
+      "price": "260",
+      "image": "product17.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 18,
+      "title": "Sustainable Product 18",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 30,
+      "price": "270",
+      "image": "product18.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 19,
+      "title": "Sustainable Product 19",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 35,
+      "price": "280",
+      "image": "product19.png",
+      "recyclability": "high",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 20,
+      "title": "Sustainable Product 20",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 40,
+      "price": "290",
+      "image": "product20.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 21,
+      "title": "Sustainable Product 21",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 20,
+      "price": "300",
+      "image": "product21.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 22,
+      "title": "Sustainable Product 22",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 25,
+      "price": "310",
+      "image": "product22.png",
+      "recyclability": "high",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 23,
+      "title": "Sustainable Product 23",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 30,
+      "price": "320",
+      "image": "product23.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 24,
+      "title": "Sustainable Product 24",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 35,
+      "price": "330",
+      "image": "product24.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 25,
+      "title": "Sustainable Product 25",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 40,
+      "price": "340",
+      "image": "product25.png",
+      "recyclability": "high",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 26,
+      "title": "Sustainable Product 26",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 20,
+      "price": "350",
+      "image": "product26.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 27,
+      "title": "Sustainable Product 27",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 25,
+      "price": "360",
+      "image": "product27.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 28,
+      "title": "Sustainable Product 28",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 30,
+      "price": "370",
+      "image": "product28.png",
+      "recyclability": "high",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 29,
+      "title": "Sustainable Product 29",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 35,
+      "price": "380",
+      "image": "product29.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 30,
+      "title": "Sustainable Product 30",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 40,
+      "price": "390",
+      "image": "product30.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 31,
+      "title": "Sustainable Product 31",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 20,
+      "price": "400",
+      "image": "product31.png",
+      "recyclability": "high",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 32,
+      "title": "Sustainable Product 32",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 25,
+      "price": "410",
+      "image": "product32.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 33,
+      "title": "Sustainable Product 33",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 30,
+      "price": "420",
+      "image": "product33.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 34,
+      "title": "Sustainable Product 34",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 35,
+      "price": "430",
+      "image": "product34.png",
+      "recyclability": "high",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 35,
+      "title": "Sustainable Product 35",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 40,
+      "price": "440",
+      "image": "product35.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 36,
+      "title": "Sustainable Product 36",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 20,
+      "price": "450",
+      "image": "product36.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 37,
+      "title": "Sustainable Product 37",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 25,
+      "price": "460",
+      "image": "product37.png",
+      "recyclability": "high",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 38,
+      "title": "Sustainable Product 38",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 30,
+      "price": "470",
+      "image": "product38.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 39,
+      "title": "Sustainable Product 39",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 35,
+      "price": "480",
+      "image": "product39.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 40,
+      "title": "Sustainable Product 40",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 40,
+      "price": "490",
+      "image": "product40.png",
+      "recyclability": "high",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 41,
+      "title": "Sustainable Product 41",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 20,
+      "price": "500",
+      "image": "product41.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 42,
+      "title": "Sustainable Product 42",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 25,
+      "price": "510",
+      "image": "product42.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 43,
+      "title": "Sustainable Product 43",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 30,
+      "price": "520",
+      "image": "product43.png",
+      "recyclability": "high",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 44,
+      "title": "Sustainable Product 44",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 35,
+      "price": "530",
+      "image": "product44.png",
+      "recyclability": "moderate",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+      ]
+  },
+  {
+      "id": 45,
+      "title": "Sustainable Product 45",
+      "sustainabilityRating": 3.5,
+      "carbonFootprint": 40,
+      "price": "540",
+      "image": "product45.png",
+      "recyclability": "moderate",
+      "material": "organic cotton",
+      "tags": [
+          "eco-friendly",
+          "sustainable",
+          "recyclable"
+      ]
+  },
+  {
+      "id": 46,
+      "title": "Sustainable Product 46",
+      "sustainabilityRating": 5.0,
+      "carbonFootprint": 20,
+      "price": "550",
+      "image": "product46.png",
+      "recyclability": "high",
+      "material": "recycled plastic",
+      "tags": [
+          "low carbon",
+          "ethical"
+]
+}
+]
