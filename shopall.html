@@ -192,13 +192,12 @@ b{
       <p id="sale-text"></p>
     </header>
   <!-- Navbar -->
-  <nav class="bg-white shadow px-10 py-6 flex justify-between items-center">
-  <!-- Logo -->
-  <div class="flex items-center space-x-3">
-    <img src="logo.png" alt="Eco Shop Logo" class="h-10">
-    <span class="text-3xl font-semibold text-green-800">Eco Shop</span>
-  </div>
-   <!-- Hamburger Icon (Visible on Mobile) -->
+  <nav class="bg-white shadow px-10 py-6 flex justify-between items-center"> <!-- Increased navbar padding -->
+    <div class="flex items-center space-x-3">
+      <img src="logo.png" alt="Eco shop Logo" class="h-10"> <!-- Increased logo size -->
+      <span class ="text-3xl font-semibold text-green-800">Eco Shop</span>
+    </div>
+      <!-- Hamburger Icon (Visible on Mobile) -->
   <button id="hamburger" class="block md:hidden text-gray-800 text-3xl focus:outline-none">
     <i class="fa-solid fa-bars"></i>
   </button>
@@ -212,8 +211,8 @@ b{
     <li><a href="beauty.html" class="nav-link">Beauty</a></li>
     <li><a href="recomandation.html" class="nav-link">Assistant</a></li>
   </ul>
-   
-               <!-- Icons -->
+
+  <!-- Icons -->
   <div class="hidden md:flex items-center space-x-6 text-gray-700">
     <button id="searchIcon" class="hover:opacity-60 focus:outline-none">
       <i class="fa-solid fa-magnifying-glass text-2xl"></i>
@@ -222,7 +221,8 @@ b{
     <a href="shopall.html"><i class="fa-solid fa-bag-shopping text-2xl hover:opacity-60"></i></a>
   </div>
 </nav>
-   <!-- Mobile Menu (Hidden by Default) -->
+
+<!-- Mobile Menu (Hidden by Default) -->
 <div id="mobileMenu" class="hidden bg-white shadow-lg absolute top-20 left-0 w-full z-50">
   <ul class="flex flex-col text-gray-800 font-medium text-lg space-y-4 p-6">
     <li><a href="index.html" class="nav-link active">Shop</a></li>
@@ -231,12 +231,9 @@ b{
     <li><a href="bathroom.html" class="nav-link">Bathroom</a></li>
     <li><a href="beauty.html" class="nav-link">Beauty</a></li>
     <li><a href="recomandation.html" class="nav-link">Assistant</a></li>
-  </ul>   
-  
-     
-
-  </div>
-  <script>
+  </ul>
+</div>
+<script>
   document.addEventListener("DOMContentLoaded", function () {
   const hamburger = document.getElementById("hamburger");
   const mobileMenu = document.getElementById("mobileMenu");
@@ -246,7 +243,6 @@ b{
   });
 });
 </script>
-  
   <!-- Filter Bar -->
   <section class="container mx-auto mt-6 px-4 py-6 bg-white rounded-lg shadow-md">
     <h2 class="text-xl font-bold mb-4">Filter Products</h2>
@@ -258,21 +254,26 @@ b{
           <input type="checkbox" class="form-checkbox text-green-500 material-filter" value="Organic">
           <span class="ml-2">Organic</span>
         </label>
-        <label class="flex items-center mb-1">
-          <input type="checkbox" class="form-checkbox text-green-500 material-filter" value="Biodegradable">
-          <span class="ml-2">Biodegradable</span>
-        </label>
+        
         <label class="flex items-center mb-1">
           <input type="checkbox" class="form-checkbox text-green-500 material-filter" value="Eco-Friendly">
-          <span class="ml-2">Eco-Friendly</span>
+          <span class="ml-2">Plant-based</span>
         </label>
         <label class="flex items-center mb-1">
-          <input type="checkbox" class="form-checkbox text-green-500 material-filter" value="Non-Toxic">
-          <span class="ml-2">Non-Toxic</span>
+          <input type="checkbox" class="form-checkbox text-green-500 material-filter" value="Bamboo">
+          <span class="ml-2">Glass & Silk</span>
         </label>
         <label class="flex items-center">
           <input type="checkbox" class="form-checkbox text-green-500 material-filter" value="Recyclable">
           <span class="ml-2">Recyclable</span>
+        </label>
+        <label class="flex items-center">
+          <input type="checkbox" class="form-checkbox text-green-500 material-filter" value="Recyclable">
+          <span class="ml-2">Cotton</span>
+        </label>
+        <label class="flex items-center">
+          <input type="checkbox" class="form-checkbox text-green-500 material-filter" value="Recyclable">
+          <span class="ml-2">Natural Ingredients</span>
         </label>
       </div>
 
@@ -326,7 +327,7 @@ b{
 
 <!-- Product Card 2 -->
 <div class="product border border-gray-200 rounded-lg p-4" 
-     data-material="Organic Cotton" data-price="499" data-rating="5">
+     data-material="Organic " data-price="499" data-rating="5">
   <a href="https://amzn.to/4kQwJp8">
     <img src="t.jpg" alt="T-shirt" class="w-full h-64 object-cover rounded-lg mb-4">
     <h3 class="text-lg font-semibold text-gray-800 mb-2">Organic Cotton T-shirt</h3>
@@ -348,7 +349,7 @@ b{
 
 <!-- Product Card 4 -->
 <div class="product border border-gray-200 rounded-lg p-4" 
-     data-material="Recycled Paper" data-price="251" data-rating="4">
+     data-material="Recyclable " data-price="251" data-rating="4">
   <a href="https://amzn.to/4kQ93RP">
     <img src="cup.jpg" alt="Eco-friendly Cups" class="w-full h-64 object-cover rounded-lg mb-4">
     <h3 class="text-lg font-semibold text-gray-800 mb-2">Eco-friendly Cups</h3>
@@ -424,7 +425,7 @@ b{
 </div>
        <!-- Product 1 -->
 <div class="product border border-gray-200 rounded-lg p-4" 
-data-material="Recycled Paper" data-price="299" data-rating="5">
+data-material="Recycled " data-price="299" data-rating="5">
 <a href="https://amzn.to/4bVhUxE">
 <img src="paper.png" alt="toilet paper" class="w-full h-64 object-cover rounded-lg mb-4">
 <h3 class="text-lg font-semibold text-gray-800 mb-2">Eco-friendly Toilet Paper</h3>
@@ -514,7 +515,7 @@ data-material="Natural Ingredients" data-price="336" data-rating="5">
 
 <!-- Product 9 -->
 <div class="product border border-gray-200 rounded-lg p-4" 
-data-material="Recycled Plastic" data-price="387" data-rating="3">
+data-material="Recyclable " data-price="387" data-rating="3">
 <a href="https://amzn.to/41REBy4">
 <img src="maskara.jpg" alt="Recyclable Mascara - Zero Waste" class="w-full h-64 object-cover rounded-lg mb-4">
 <h3 class="text-lg font-semibold text-gray-800 mb-2">Recyclable Mascara - Zero Waste</h3>
@@ -526,7 +527,7 @@ data-material="Recycled Plastic" data-price="387" data-rating="3">
 
 <!-- Product 10 -->
 <div class="product border border-gray-200 rounded-lg p-4" 
-data-material="Recycled Materials" data-price="489" data-rating="5">
+data-material="Recyclable Materials" data-price="489" data-rating="5">
 <a href="https://amzn.to/4irHLzH">
 <img src="compac.jpg" alt="compact" class="w-full h-64 object-cover rounded-lg mb-4">
 <h3 class="text-lg font-semibold text-gray-800 mb-2">Compact</h3>
@@ -643,7 +644,7 @@ data-material="Natural Ingredients" data-price="1449" data-rating="1">
   <p class="text-gray-600">⭐⭐⭐⭐⭐</p>
 </div>
 
-<div class="product border border-gray-200 rounded-lg p-4" data-material="bamboo" data-price="373" data-rating="4" data-reviews="3">
+<div class="product border border-gray-200 rounded-lg p-4" data-material="Bamboo" data-price="373" data-rating="4" data-reviews="3">
   <a href="https://amzn.to/4iLqj96">
     <img src="mug.jpg" alt="Bamboo Coffee Mug" class="w-full h-64 object-cover rounded-lg mb-4">
     <h3 class="text-lg font-semibold text-gray-800 mb-2">Bamboo Coffee Mug</h3>
